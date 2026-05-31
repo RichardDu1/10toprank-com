@@ -1,0 +1,190 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const listicles = await getCollection('listicles');
+  return listicles.map(listicle => ({
+    params: { slug: listicle.id.split('/').pop() },
+    props: { listicle },
+  }));
+}
+
+const { listicle } = Astro.props;
+const { Content } = await render(listicle);
+
+// Schema Markup for Top 10 List
+const listSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": listicle.data.products.map((p, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Product",
+      "name": p.name,
+      "description": p.description,
+      "offers": {
+        "@type": "Offer",
+        "price": p.price.replace(/[^0-9.]/g, ''),
+        "priceCurrency": "USD"
+      }
+    }
+  }))
+};
+---
+
+<BaseLayout
+  title={`${listicle.data.title} | 10TopRank`}
+  description={listicle.data.description}
+  canonical={`https://10toprank.com/en/listicles/${listicle.id.split('/').pop()}/`}
+  schema={{ type: 'ItemList', data: listSchema }}
+>
+  <article class="max-w-[1200px] mx-auto px-6 pt-32 pb-24">
+    <!-- Breadcrumbs -->
+    <nav class="mb-10 flex items-center text-sm font-medium text-gray-400 gap-2">
+      <a href="/" class="hover:text-white transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-white">{listicle.data.category}</span>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="mb-16 text-center max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-bold leading-[1.1] mb-6">{listicle.data.title}</h1>
+      <p class="text-xl text-gray-400 font-light leading-relaxed mb-4">{listicle.data.description}</p>
+      <div class="text-sm text-gray-500 flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        Last Updated: {listicle.data.lastUpdated}
+      </div>
+    </header>
+
+    <!-- Quick List (Comparison Table Equivalent) -->
+    <section class="mb-20">
+      <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+        <span class="bg-primary-500/20 text-primary-500 px-3 py-1 rounded-md text-sm">Quick List</span>
+        Top Picks at a Glance
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {listicle.data.quickList.map((item, index) => (
+          <a href={`#product-${item.id}`} class="group glass-panel p-6 rounded-2xl hover:border-primary-500/50 transition-all hover:-translate-y-1 block relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-primary-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl z-10">#{index + 1}</div>
+            {item.badge && (
+              <div class="text-xs font-bold text-primary-400 mb-2 uppercase tracking-wide">{item.badge}</div>
+            )}
+            <h3 class="text-xl font-bold text-white group-hover:text-primary-400 transition-colors mb-2 pr-6">{item.name}</h3>
+            <div class="flex items-center gap-2 mt-4">
+              <span class="text-2xl font-black text-yellow-400">{item.score.toFixed(1)}</span>
+              <span class="text-sm text-gray-500">/ 10</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Detailed Rankings -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      
+      <!-- Sticky ToC -->
+      <aside class="hidden lg:block lg:col-span-3">
+        <div class="sticky top-24 glass-panel p-6 rounded-2xl">
+          <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">In this guide</h3>
+          <ul class="space-y-3">
+            {listicle.data.products.map((p, index) => (
+              <li>
+                <a href={`#product-${p.id}`} class="text-sm text-gray-300 hover:text-primary-400 transition-colors flex items-start gap-2">
+                  <span class="text-primary-500 font-bold">{index + 1}.</span>
+                  <span>{p.name}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main Reviews -->
+      <div class="lg:col-span-9 space-y-20">
+        <!-- MDX Intro Content (if any) -->
+        <div class="prose prose-invert prose-lg max-w-none text-gray-300">
+          <Content />
+        </div>
+
+        {listicle.data.products.map((p, index) => (
+          <div id={`product-${p.id}`} class="scroll-mt-24">
+            <div class="glass-panel rounded-3xl overflow-hidden border border-white/10 group hover:border-primary-500/30 transition-colors duration-500">
+              
+              <!-- Product Header -->
+              <div class="p-8 md:p-10 border-b border-white/5 relative">
+                <div class="absolute top-0 left-0 bg-primary-500/10 text-primary-400 px-6 py-2 rounded-br-2xl font-black text-xl border-b border-r border-primary-500/20">
+                  #{index + 1}
+                </div>
+                
+                <div class="mt-8 flex flex-col md:flex-row gap-6 justify-between items-start md:items-center">
+                  <div>
+                    {p.badge && (
+                      <span class="inline-block bg-primary-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3 shadow-[0_0_15px_rgba(var(--color-primary-500),0.5)]">
+                        {p.badge}
+                      </span>
+                    )}
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">{p.name}</h2>
+                    <p class="text-xl text-gray-400 font-medium">{p.price}</p>
+                  </div>
+                  
+                  <div class="flex flex-col items-end">
+                    <div class="flex items-end gap-1 mb-1">
+                      <span class="text-5xl font-black text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.3)]">{p.score.toFixed(1)}</span>
+                    </div>
+                    <span class="text-xs text-gray-500 uppercase tracking-widest font-bold">Score</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product Content -->
+              <div class="p-8 md:p-10">
+                <p class="text-lg text-gray-300 leading-relaxed mb-8">{p.description}</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                  <div class="bg-emerald-500/5 border border-emerald-500/20 rounded-2xl p-6">
+                    <h4 class="text-emerald-400 font-bold mb-4 flex items-center gap-2">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                      Reasons to Buy
+                    </h4>
+                    <ul class="space-y-3">
+                      {p.pros.map(pro => (
+                        <li class="text-sm text-gray-300 flex items-start gap-2">
+                          <span class="text-emerald-500/50 mt-1">•</span>
+                          <span>{pro}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-rose-500/5 border border-rose-500/20 rounded-2xl p-6">
+                    <h4 class="text-rose-400 font-bold mb-4 flex items-center gap-2">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                      Reasons to Avoid
+                    </h4>
+                    <ul class="space-y-3">
+                      {p.cons.map(con => (
+                        <li class="text-sm text-gray-300 flex items-start gap-2">
+                          <span class="text-rose-500/50 mt-1">•</span>
+                          <span>{con}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="flex justify-center md:justify-start">
+                  <a href={p.affiliateLink} target="_blank" rel="noopener nofollow" class="bg-primary-500 hover:bg-primary-400 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:shadow-[0_0_30px_rgba(var(--color-primary-500),0.4)] hover:-translate-y-1 w-full md:w-auto text-center flex items-center justify-center gap-2">
+                    Check Price 
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </article>
+</BaseLayout>
