@@ -58,5 +58,305 @@
     "category": "Laptops & Computing",
     "intent": "Buyer's Guide",
     "status": "completed"
+  },
+  {
+    "topic": "Top 10 Best Smartphones for Gaming in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "completed"
+  },
+  {
+    "topic": "Top 10 Camera Phones for Photography Enthusiasts 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "completed"
+  },
+  {
+    "topic": "Top 10 Best Budget Smartphones Under $500 in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "completed"
+  },
+  {
+    "topic": "Top 10 Foldable Phones to Buy in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "completed"
+  },
+  {
+    "topic": "Top 10 Best 5G Smartphones for Fast Connectivity 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "completed"
+  },
+  {
+    "topic": "Top 10 Best Smartphones with Longest Battery Life 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "completed"
+  },
+  {
+    "topic": "Top 10 Best Rugged Smartphones for Outdoor Use 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "completed"
+  },
+  {
+    "topic": "Top 10 Best Compact Smartphones in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "completed"
+  },
+  {
+    "topic": "Top 10 Best Smartphones with Headphone Jacks 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "completed"
+  },
+  {
+    "topic": "Top 10 Best Smartphones for Video Recording 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Smartphones for Business Professionals 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Wireless Earbuds for iPhone in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Wireless Earbuds for Android in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Noise-Canceling Earbuds for Commuters 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best True Wireless Earbuds Under $100 in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Wireless Earbuds for Running 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Wireless Earbuds with Longest Battery Life 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Wireless Earbuds for Calls 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best USB-C Headphones in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Phone Cases for Drop Protection 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best MagSafe Cases for iPhone 16 in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Clear Phone Cases in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Wallet Phone Cases in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Rugged Phone Cases for Outdoor 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Leather Phone Cases in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Screen Protectors for iPhone 16 in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Tempered Glass Screen Protectors 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Privacy Screen Protectors in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Portable Power Banks in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Fast Charging Power Banks 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Wireless Chargers in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best MagSafe Chargers in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Car Phone Mounts in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Wireless Car Chargers in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Smartphone Tripods in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Selfie Sticks in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Phone Grips and PopSockets 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Smartwatch for iPhone Users 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Smartwatches for Android Users 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Fitness Trackers 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Bluetooth Trackers (Tile, AirTag) in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best USB-C Cables for Fast Charging 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Lightning Cables for iPhone 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Phone Stands for Desk 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Gaming Phone Coolers in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best External Lenses for Smartphones 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Smartphone Gimbal Stabilizers 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Waterproof Phone Pouches in 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Anti-Blue Light Screen Protectors 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
+  },
+  {
+    "topic": "Top 10 Best Phone Cleaners and UV Sanitizers 2026",
+    "category": "Smartphones & Accessories",
+    "intent": "Buyer's Guide",
+    "status": "pending"
   }
 ]
