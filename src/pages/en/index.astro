@@ -1,8 +1,16 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const pageTitle = 'The 10 Best In Class | 10 Top Rank';
-const pageDescription = 'Exhaustively tested, objectively ranked. We spend hundreds of hours researching so you don\'t have to.';
+// Fetch all reviews and sort by rating
+const allReviews = await getCollection('reviews');
+const sortedReviews = allReviews.sort((a, b) => b.data.rating - a.data.rating);
+
+// Get top 3 featured
+const featuredReviews = sortedReviews.slice(0, 3);
+
+const pageTitle = 'Deep-Dive B2B Software Reviews | 10TopRank';
+const pageDescription = 'Exhaustively tested, objectively ranked B2B software. We spend hundreds of hours researching so you don\'t have to.';
 ---
 
 <BaseLayout
@@ -11,78 +19,71 @@ const pageDescription = 'Exhaustively tested, objectively ranked. We spend hundr
   canonical="https://10toprank.com/en/"
   schema={{ type: 'WebSite', data: { description: pageDescription } }}
 >
-  <!-- Trust Header -->
-  <header class="bg-white border-b border-border py-16 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <div class="flex flex-wrap justify-center gap-4 mb-8">
-        <div class="trust-badge">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          Independently Tested
-        </div>
-        <div class="trust-badge">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          500+ Hours of Research
-        </div>
+  <main class="max-w-[1200px] mx-auto px-6 pt-32 pb-24">
+    <!-- Hero Section -->
+    <header class="text-center mb-24">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-sm mb-8">
+        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        Deep-Dive B2B Review Engine
       </div>
       
-      <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-        Don't buy the wrong product. <br/>
-        <span class="text-primary text-3xl md:text-5xl italic">Trust our data.</span>
+      <h1 class="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-8">
+        Stop guessing. <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 italic">Deploy with data.</span>
       </h1>
       
-      <p class="text-lg text-muted max-w-2xl mx-auto">
-        We buy, test, and rank the top 10 products in software, home tech, and business tools. Zero sponsored placements. 100% objective data.
+      <p class="text-xl text-gray-400 font-light max-w-2xl mx-auto leading-relaxed mb-12">
+        We buy, test, and rank enterprise software, marketing tools, and AI solutions. Zero sponsored placements. 100% objective data.
       </p>
-    </div>
-  </header>
 
-  <!-- Content Section -->
-  <main class="max-w-5xl mx-auto px-6 py-16">
-    
-    <!-- Top Pick Spotlight Component -->
-    <section class="mb-20">
-      <h2 class="text-2xl font-bold border-b-2 border-primary pb-2 inline-block mb-8">Currently Trending Rankings</h2>
-      
-      <div class="bg-white rounded-xl shadow-sm border border-border p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center relative overflow-hidden">
-        <!-- Top Pick Ribbon -->
-        <div class="absolute top-0 right-0 bg-accent text-white font-bold text-xs uppercase px-4 py-1 rounded-bl-lg">
-          Updated: Oct 2026
-        </div>
-        
-        <div class="w-full md:w-1/3 bg-surface aspect-square rounded-lg flex items-center justify-center border border-border">
-          <span class="text-muted text-sm">VPN Comparison Chart</span>
-        </div>
-        
-        <div class="w-full md:w-2/3">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="text-accent text-xl">★★★★★</span>
-            <span class="text-sm font-bold text-muted uppercase">Tech / Privacy</span>
-          </div>
-          <h3 class="text-3xl font-bold mb-4">The 10 Best VPN Services of 2026</h3>
-          <p class="text-muted leading-relaxed mb-6">
-            We rented servers across 40 countries and ran over 10,000 speed tests to determine which VPN actually protects your privacy without throttling your gigabit connection.
-          </p>
-          <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary-dark transition-colors">
-            Read the Full Report
-          </a>
-        </div>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/en/reviews/" class="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-gray-200 transition-colors">
+          Browse All Reviews
+        </a>
+        <a href="#categories" class="glass-panel text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors">
+          Explore Categories
+        </a>
       </div>
-    </section>
+    </header>
 
-    <!-- Listicle Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <a href="#" class="block bg-white p-6 rounded-xl border border-border hover:border-primary hover:shadow-md transition-all group">
-        <div class="text-sm font-bold text-muted uppercase mb-2">Software</div>
-        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">10 Best Project Management Tools for Remote Teams</h3>
-        <p class="text-muted text-sm">Comparing Asana, Monday, ClickUp, and Notion for 2026 workflows.</p>
-      </a>
-      <a href="#" class="block bg-white p-6 rounded-xl border border-border hover:border-primary hover:shadow-md transition-all group">
-        <div class="text-sm font-bold text-muted uppercase mb-2">Home Office</div>
-        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">The 10 Best Ergonomic Office Chairs Under $500</h3>
-        <p class="text-muted text-sm">Stop destroying your lower back. We sat in 35 chairs to find the winner.</p>
-      </a>
-    </div>
+    <!-- Top Ranked Spotlight -->
+    {featuredReviews.length > 0 && (
+      <section class="mb-24">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-3xl font-bold">Highest Rated This Month</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {featuredReviews.map((review, index) => (
+            <a href={`/en/reviews/${review.id.split('/').pop()}`} class="glass-panel rounded-2xl p-6 hover:-translate-y-1 transition-transform group relative overflow-hidden">
+              {index === 0 && (
+                <div class="absolute top-0 right-0 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-bl-lg z-10">
+                  #1 Editor's Choice
+                </div>
+              )}
+              <div class="flex justify-between items-start mb-4">
+                <span class="text-xs font-medium px-2 py-1 rounded bg-white/10 text-gray-300">
+                  {review.data.category}
+                </span>
+                <span class="text-lg font-bold text-yellow-400">
+                  ★ {review.data.rating.toFixed(1)}
+                </span>
+              </div>
+              <h3 class="text-2xl font-bold mb-2 group-hover:text-purple-400 transition-colors">{review.data.title}</h3>
+              <p class="text-gray-400 text-sm mb-4 line-clamp-2">{review.data.description}</p>
+              <div class="text-xs text-gray-500">Target: {review.data.targetAudience}</div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {allReviews.length === 0 && (
+      <div class="text-center py-24 glass-panel rounded-2xl">
+        <h3 class="text-2xl font-bold text-gray-400">Review engine indexing...</h3>
+        <p class="text-gray-500 mt-2">Our crawlers are currently analyzing B2B software.</p>
+      </div>
+    )}
 
   </main>
-
 </BaseLayout>
