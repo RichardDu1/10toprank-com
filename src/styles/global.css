@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* === TRUE BESPOKE REDESIGN: 10 TOP RANK ===
+   Aesthetic: Trust & Authority (Wirecutter Style)
+   Vibe: Objective, Professional, Calming Sand/Green === */
+
+@theme {
+  --color-primary: #166534; /* Forest Green */
+  --color-primary-dark: #14532D;
+  --color-accent: #F59E0B;  /* Amber for stars/highlights */
+  --color-surface: #FDFBF7; /* Warm Sand */
+  --color-neutral: #FFFFFF; /* Pure white for cards */
+  --color-border: #E5E0D8;
+  --color-muted: #57534E;   /* Stone 600 */
+  --color-text: #1C1917;    /* Stone 900 */
+
+  /* Objective Typography */
+  --font-serif: 'Merriweather', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { 
+  font-family: var(--font-sans); 
+  color: var(--color-text); 
+  background-color: var(--color-surface); 
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 { 
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  color: #166534;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}

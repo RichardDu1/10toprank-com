@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = 'The 10 Best In Class | 10 Top Rank';
+const pageDescription = 'Exhaustively tested, objectively ranked. We spend hundreds of hours researching so you don\'t have to.';
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical="https://10toprank.com/en/"
+  schema={{ type: 'WebSite', data: { description: pageDescription } }}
+>
+  <!-- Trust Header -->
+  <header class="bg-white border-b border-border py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <div class="trust-badge">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          Independently Tested
+        </div>
+        <div class="trust-badge">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          500+ Hours of Research
+        </div>
+      </div>
+      
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+        Don't buy the wrong product. <br/>
+        <span class="text-primary text-3xl md:text-5xl italic">Trust our data.</span>
+      </h1>
+      
+      <p class="text-lg text-muted max-w-2xl mx-auto">
+        We buy, test, and rank the top 10 products in software, home tech, and business tools. Zero sponsored placements. 100% objective data.
+      </p>
+    </div>
+  </header>
+
+  <!-- Content Section -->
+  <main class="max-w-5xl mx-auto px-6 py-16">
+    
+    <!-- Top Pick Spotlight Component -->
+    <section class="mb-20">
+      <h2 class="text-2xl font-bold border-b-2 border-primary pb-2 inline-block mb-8">Currently Trending Rankings</h2>
+      
+      <div class="bg-white rounded-xl shadow-sm border border-border p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center relative overflow-hidden">
+        <!-- Top Pick Ribbon -->
+        <div class="absolute top-0 right-0 bg-accent text-white font-bold text-xs uppercase px-4 py-1 rounded-bl-lg">
+          Updated: Oct 2026
+        </div>
+        
+        <div class="w-full md:w-1/3 bg-surface aspect-square rounded-lg flex items-center justify-center border border-border">
+          <span class="text-muted text-sm">VPN Comparison Chart</span>
+        </div>
+        
+        <div class="w-full md:w-2/3">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-accent text-xl">★★★★★</span>
+            <span class="text-sm font-bold text-muted uppercase">Tech / Privacy</span>
+          </div>
+          <h3 class="text-3xl font-bold mb-4">The 10 Best VPN Services of 2026</h3>
+          <p class="text-muted leading-relaxed mb-6">
+            We rented servers across 40 countries and ran over 10,000 speed tests to determine which VPN actually protects your privacy without throttling your gigabit connection.
+          </p>
+          <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary-dark transition-colors">
+            Read the Full Report
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Listicle Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <a href="#" class="block bg-white p-6 rounded-xl border border-border hover:border-primary hover:shadow-md transition-all group">
+        <div class="text-sm font-bold text-muted uppercase mb-2">Software</div>
+        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">10 Best Project Management Tools for Remote Teams</h3>
+        <p class="text-muted text-sm">Comparing Asana, Monday, ClickUp, and Notion for 2026 workflows.</p>
+      </a>
+      <a href="#" class="block bg-white p-6 rounded-xl border border-border hover:border-primary hover:shadow-md transition-all group">
+        <div class="text-sm font-bold text-muted uppercase mb-2">Home Office</div>
+        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">The 10 Best Ergonomic Office Chairs Under $500</h3>
+        <p class="text-muted text-sm">Stop destroying your lower back. We sat in 35 chairs to find the winner.</p>
+      </a>
+    </div>
+
+  </main>
+
+</BaseLayout>
