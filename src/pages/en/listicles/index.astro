@@ -2,42 +2,39 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-const allReviews = await getCollection('reviews');
-const sortedReviews = allReviews.sort((a, b) => b.data.rating - a.data.rating);
+const allListicles = await getCollection('listicles');
+const sortedListicles = allListicles.sort((a, b) => new Date(b.data.lastUpdated).getTime() - new Date(a.data.lastUpdated).getTime());
 
-const pageTitle = 'All B2B Software Reviews | 10TopRank';
-const pageDescription = 'Browse our comprehensive directory of deeply analyzed B2B software and tools.';
+const pageTitle = 'All Top 10 Rankings | 10TopRank';
+const pageDescription = 'Browse all our in-depth top 10 rankings and product comparisons.';
 ---
 
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
-  canonical="https://10toprank.com/en/reviews/"
+  canonical="https://10toprank.com/en/listicles/"
 >
   <main class="max-w-[1200px] mx-auto px-6 pt-32 pb-24">
     <header class="mb-16">
-      <h1 class="text-5xl font-bold mb-6">Software Reviews</h1>
-      <p class="text-xl text-gray-400 max-w-2xl">Unbiased, data-driven analysis of the tools running modern business.</p>
+      <h1 class="text-5xl font-bold mb-6">Software Rankings</h1>
+      <p class="text-xl text-gray-400 max-w-2xl">Discover our expert-curated top 10 lists.</p>
     </header>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {sortedReviews.length > 0 ? sortedReviews.map((review) => (
-        <a href={`/en/reviews/${review.id.split('/').pop()}`} class="glass-panel rounded-xl p-6 hover:-translate-y-1 transition-transform group">
+      {sortedListicles.length > 0 ? sortedListicles.map((item) => (
+        <a href={`/en/listicles/${item.id.split('/').pop()}`} class="glass-panel rounded-xl p-6 hover:-translate-y-1 transition-transform group">
           <div class="flex justify-between items-start mb-4">
             <span class="text-xs font-medium px-2 py-1 rounded bg-white/10 text-gray-300">
-              {review.data.category}
-            </span>
-            <span class="text-lg font-bold text-yellow-400">
-              ★ {review.data.rating.toFixed(1)}
+              {item.data.category}
             </span>
           </div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">{review.data.title}</h3>
-          <p class="text-sm text-gray-400 line-clamp-3 mb-4">{review.data.description}</p>
-          <div class="text-xs text-gray-500 mt-auto">Pricing: {review.data.pricingRange}</div>
+          <h3 class="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">{item.data.title}</h3>
+          <p class="text-gray-400 text-sm mb-4 line-clamp-2">{item.data.description}</p>
+          <div class="text-xs text-gray-500">Updated: {item.data.lastUpdated}</div>
         </a>
       )) : (
-        <div class="col-span-3 text-center text-gray-500 py-12">
-          Awaiting crawler execution to populate database...
+        <div class="col-span-1 text-center py-12 glass-panel rounded-xl text-gray-400">
+          No rankings found.
         </div>
       )}
     </div>
