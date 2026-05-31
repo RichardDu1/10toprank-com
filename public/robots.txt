@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://findtheaiforthat.com/sitemap-index.xml
+Sitemap: https://10toprank.com/sitemap-index.xml
